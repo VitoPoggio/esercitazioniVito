@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Esercizio rettangoli</title>
+    </head>
+
+    <body>
+        
+        <div id="div">
+        </div>
+        
+
+        <script>
+            const color = ["red","yellow","green","purple","blue","brown","black"];
+            
+            function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min + "px";
+           }
+           function getRndColor(min,max) {
+            return color[Math.floor(Math.random() * (max - min)) + min];
+           }
+            
+
+            document.addEventListener("click", (e) => {
+                let colore = getRndColor(0,color.length);
+                let x = getRndInteger(50,400);
+                let y = getRndInteger(50,400);
+                let rect = document.createElement("img");
+                rect.style.backgroundColor = colore;
+                rect.style.position = "absolute";
+                rect.style.height = x;
+                rect.style.width = y;
+                rect.style.left = e.clientX;
+                rect.style.top = e.clientY;
+                document.getElementById("div").appendChild(rect);
+            })
+           
+           
+           
+        </script>
+    </body>
+</html>
